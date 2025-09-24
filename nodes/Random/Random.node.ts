@@ -28,17 +28,17 @@ export class Random implements INodeType {
 				noDataExpression: true,
 				options: [
 					{
-						name: 'GET',
+						name: 'True Random Number Generator',
 						value: 'get',
-						description: 'True Random Number Generator',
-						action: 'True Random Number Generator',
+						description: 'Generates a random number within a defined interval',
+						action: 'get',
 					},
 				],
 				default: 'get',
 			},
 
 			{
-				displayName: 'De:',
+				displayName: 'Min:',
 				name: 'numberMin',
 				type: 'number',
 				required: true,
@@ -52,7 +52,7 @@ export class Random implements INodeType {
 				description: 'Defina o limite inferior',
 			},
 			{
-				displayName: 'Até:',
+				displayName: 'Max:',
 				name: 'numberMax',
 				type: 'number',
 				required: true,

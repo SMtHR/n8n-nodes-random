@@ -1,4 +1,4 @@
-# 🧩 Random Node for n8n
+# 🧩 Random Node para n8n
 
 Este projeto implementa um nó customizado chamado `Random`, que gera números aleatórios com base em um intervalo fornecido, utilizando a API pública do [random.org](https://www.random.org/).
 
@@ -59,19 +59,19 @@ Acesse o n8n em: http://localhost:5678
 
 > O nó realiza uma requisição GET para a API do random.org:
 
-Operação disponível: GET
+Operação disponível: True Random Number Generator
 
 Parâmetros:
 
-De: → número mínimo (ex: 1)
+Min: → número mínimo (ex: 1)
 
-Até: → número máximo (ex: 100)
+Max: → número máximo (ex: 100)
 
 > O resultado é retornado como um array JSON com um número aleatório.
 
 ## Utilizando o nó Random
 
-Na tela inicial, clique em "Start from scratch" para abrir o editor do n8n. É nele que você conectará nós para criar processos automatizados.
+Na tela inicial, clique em "Start from scratch" para criar um novo Workspace. É nele que você conectará nós para criar processos automatizados.
 
 O primeiro passo é adicionar um Trigger, um gatilho que iniciará o processo. Para efeito de simplicidade, escolha o "Trigger manually", que inicia o processo ao clicar no botão "Execute Workflow".
 

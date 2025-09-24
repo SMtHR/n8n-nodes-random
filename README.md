@@ -8,14 +8,14 @@ Este projeto implementa um nó customizado chamado `Random`, que gera números a
 
 ## Pré-requisitos
 
-Confira se o Node.js e o NPM estão instalados em sua máquina. Para isto, abra um terminal e rode os comandos:
+Confira se o Node.js `v22.x.x` e o NPM `v10.9.3` estão instalados em sua máquina. Para isto, abra um terminal e rode os comandos:
 
 ```bash
 node -v
 npm -v
 ```
 
-> Caso estes comandos não retornem a versão instalada destes programas, acesse https://nodejs.org/pt/download, selecione a versão 22 (LTS) para seu sistema operacional, baixe-o e instale-o.
+> Caso estes comandos não retornem a versão instalada destes programas ou não retorne as versões citadas acima, acesse https://nodejs.org/pt/download, selecione a versão 22 (LTS) para seu sistema operacional, baixe-o e instale-o.
 
 A aplicação Docker Desktop também é necessária para rodar o n8n localmente. Acesse https://www.docker.com/ e baixe a versão compatível com seu sistema operacional.
 

@@ -63,10 +63,6 @@ export class Random implements INodeType {
 		],
 	};
 
-	// The function below is responsible for actually doing whatever this node
-	// is supposed to do. In this case, we're just appending the `myString` property
-	// with whatever the user has entered.
-	// You can make async calls and use `await`.
 	async execute(this: IExecuteFunctions): Promise<INodeExecutionData[][]> {
 		let responseData = [];
 		const numberMin = this.getNodeParameter('numberMin', 0) as string;

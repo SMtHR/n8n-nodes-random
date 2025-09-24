@@ -1,48 +1,82 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# 🧩 Random Node for n8n
 
-# n8n-nodes-starter
+Este projeto implementa um nó customizado chamado `Random`, que gera números aleatórios com base em um intervalo fornecido, utilizando a API pública do [random.org](https://www.random.org/).
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+> 📌 Desenvolvido como uma extensão para o [n8n](https://n8n.io/).
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+---
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+## Pré-requisitos
 
-## Prerequisites
+Confira se o Node.js e o NPM estão instalados em sua máquina. Para isto, abra um terminal e rode os comandos:
 
-You need the following installed on your development machine:
+```bash
+node -v
+npm -v
+```
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+> Caso estes comandos não retornem a versão instalada destes programas, acesse https://nodejs.org/pt/download, selecione a versão 22 (LTS) para seu sistema operacional, baixe-o e instale-o.
 
-## Using this starter
+A aplicação Docker Desktop também é necessária para rodar o n8n localmente. Acesse https://www.docker.com/ e baixe a versão compatível com seu sistema operacional.
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+## 📦 Instalação das dependências
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+### Clone o [repositório](https://github.com/SMtHR/n8n-nodes-random), abra um terminal dentro da pasta e instale as dependências:
 
-## More information
+```
+npm install
+```
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+### Compile o projeto:
 
-## License
+```
+npm run build
+```
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+### Em seguida, configure o ambiente:
+
+As variáveis de ambiente necessárias estão definidas no `docker-compose.yaml`. Crie um arquivo `.env` a partir de `.env.example`, completando os campos faltantes a sua preferência. O `docker-compose.yaml` usará estas variáveis para configurar o container Docker.
+
+### Então, execute os containers:
+
+```
+docker-compose up -d
+```
+
+---
+
+# 🔹Acessando o n8n
+
+Acesse o n8n em: http://localhost:5678
+
+> Ao acessar o link pela primeira vez, o n8n pedirá para que você cadastre sua "Owner Account". Preencha o formulário e avance para a próxima etapa.
+>
+> Customize seu n8n no próximo formulário, ou clique em "Get Started" para pular.
+>
+> A próxima tela lhe oferecerá algumas funcionalidades a partir de uma key que será enviada para seu e-mail. Estas funcionalidades não são necessárias para o que vamos fazer, portanto, você pode clicar em "Skip". Caso deseje-as, preencha seu email e ative sua key.
+
+## 🧩 Sobre o nó Random
+
+> O nó realiza uma requisição GET para a API do random.org:
+
+Operação disponível: GET
+
+Parâmetros:
+
+De: → número mínimo (ex: 1)
+
+Até: → número máximo (ex: 100)
+
+> O resultado é retornado como um array JSON com um número aleatório.
+
+## Utilizando o nó Random
+
+Na tela inicial, clique em "Start from scratch" para abrir o editor do n8n. É nele que você conectará nós para criar processos automatizados.
+
+O primeiro passo é adicionar um Trigger, um gatilho que iniciará o processo. Para efeito de simplicidade, escolha o "Trigger manually", que inicia o processo ao clicar no botão "Execute Workflow".
+
+A seguir, vamos implementar o nosso nó Random. Clique no símbolo "+" à direita do nó, busque por "Random" e selecione o nó correspondente.
+
+> Obs: Caso o nó não apareça, certifique-se que executou os comandos definidos no início deste documento. Provavelmente você pode ter esquecido de compilar o projeto. Digite `docker-compose down` no terminal para apagar os containeres criados anteriormente, compile o projeto com `npm run build` e execute os containers novamente com `docker-compose up -d`.
+
+Após selecionar o nó, defina os limites do intervalo que você deseja gerar o número aleatório. Em seguida, clique em "Execute step" no canto superior direito e um número dentro deste intervalo aparecerá na coluna "Output" à direita. (Selecione a opção JSON para visualizar a resposta)
